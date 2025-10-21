@@ -22,3 +22,6 @@ dnf5 install -y tmux plymouth fastfetch
 #### Example for enabling a System Unit File
 
 systemctl enable podman.socket
+systemctl enable parzival-welcome.service
+
+chmod +x /usr/local/bin/parzival-welcome

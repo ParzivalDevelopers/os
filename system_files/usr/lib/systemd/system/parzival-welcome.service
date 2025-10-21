@@ -1,0 +1,16 @@
+[Unit]
+Description=ParzivalOS First Boot Welcome Message
+ConditionPathExists=!/var/lib/parzival/.welcome-shown
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStartPre=/usr/bin/mkdir -p /var/lib/parzival
+ExecStart=/usr/local/bin/parzival-welcome
+ExecStartPost=/usr/bin/touch /var/lib/parzival/.welcome-shown
+StandardOutput=journal+console
+StandardError=journal+console
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
